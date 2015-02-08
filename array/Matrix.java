@@ -32,8 +32,8 @@ public class Matrix {
 	}
 
 	public static void main(String[] args) {
-		int[] array = new int[16];
-		for(int i = 1; i<17 ;i++){
+		int[] array = new int[25];
+		for(int i = 1; i<26 ;i++){
 		array[i-1] = i;
 		}
 		matrxPrint(array);

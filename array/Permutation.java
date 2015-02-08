@@ -1,41 +1,39 @@
 package array;
-//检查string是否相同的两种方法
+//Question：check whether a string is the permutation of another string
 
 public class Permutation {
-	
+//方法1， sort
 	public static String sort(String string){
 		char[] str = string.toCharArray();
 		java.util.Arrays.sort(str);
 		return new String(str);
 	}
-	
-	public static int[] check(String string){
+//方法2，比较ascii码	
+	public static boolean check(String string1, String string2){
+		if(string1.length()!=string2.length()){
+			return false;
+		}
 		int[] array = new int[256];
-		for(int i = 0; i<string.length(); i++){
-			int value = string.charAt(i);
+		for(int i = 0; i<string1.length(); i++){
+			int value = string1.charAt(i);
 			array[value]++;
 		}
-		return array;
+		
+		for(int i = 0; i<string2.length(); i++){
+			int value = string2.charAt(i);
+			if(--array[value]<0){
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public static void main(String[] args) {
 		String string = "ueiwuiurieu";
-		int[] array1 = check(string);
-		String string2 = "eiuwuiurieu";
-		int[] array2 = check(string2);
-		int k = 0;
-		for(int i = 0; i < 256; i++){
-			if(array1[i]!=array2[i]){
-				k++;
-			}
-		}
-		if(k == 0){
-			System.out.println("yes");
-		}
-		else{
-			System.out.println("no");
-		}
 		
+		String string2 = "eiwuiurieu";
+		
+		System.out.print(check(string, string2));
 	}
 
 }

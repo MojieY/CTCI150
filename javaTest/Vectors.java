@@ -7,7 +7,7 @@ import java.util.Vector;
 public class Vectors {
 
 	public static void main(String[] args) {
-		
+		/*
 		Vector<String> vec = new Vector<String>();
 		vec.add("one");
 		vec.add("two");
@@ -25,6 +25,15 @@ public class Vectors {
 		System.out.println(array.get(0));
 
 		System.out.println(map.get("one"));
-	}
+		}
+		*/
+		int[][] matrix = {
+						 	{1,2,3,4},
+						 	{3,4,5},
+						 	{5,6,7}
+						 };
+		System.out.println(matrix.length);
+		}
+	
 
 }

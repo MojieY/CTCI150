@@ -1,47 +1,46 @@
 package array;
 
+import java.util.ArrayList;
+//Question: write a algorithm such that if an M*N matrix is 0, the enire row and column
+//are set to 0
 public class columnTo0 {
-	
+//一维数组	
 	public static void check(int[] array){
 		
 		System.out.println();
 		System.out.println();
 		int n = (int) Math.sqrt(array.length);
-		System.out.println(n);
+		System.out.println("矩阵大小："+n);
 		
 		int num = 0;
+		ArrayList<Integer> list = new ArrayList<Integer>();
 		for(int i = 0; i<array.length; i++){
 			if(array[i] == 0){
 				num++;
+				list.add(i);
 			}
 		}
 		
-		System.out.println(num);
+		System.out.println("0的个数："+num);
 		
-		int[] list = new int[num];
-		for(int i = 0,j=0; i<array.length; i++){
-			if(array[i] == 0){
-				list[j] = i;
-				j=j+1;
-			}
+		for(int i = 0; i<list.size(); i++){
+			System.out.println("0的位置："+list.get(i));
 		}
 		
-		for(int i = 0; i<list.length; i++){
-			System.out.println(list[i]);
-		}
-		
-		for(int i = 0; i< list.length; i++){
-			int column = list[i]/n;
+		for(int i = 0; i< list.size(); i++){
+			//消行
+			int column = list.get(i)/n;
 			for(int a = n*column; a<n*(column+1); a++){
 				array[a] = 0;
 			}
-			int row = list[i]%n;
+			//消列
+			int row = list.get(i)%n;
 			for(int b = 0; b<n; b++){
 				array[b*n+row] = 0;
 			}
 		}
 	}
-	
+//二维数组	
 	public static void check2(int[][] matrix){
 		boolean[] row = new boolean[matrix.length];
 		boolean[] column = new boolean[matrix[0].length];
