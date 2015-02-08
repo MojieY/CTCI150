@@ -67,9 +67,29 @@ public class Circular_list {
 			}
 			return temp;
 		}
-		
-		public void partition(int x){
+//Question: 寻找环的起点(入口)		
+		public Node FindBeginning(Circular_list list){
 			
+			Node slow = list.head;
+			Node fast = list.head;
+			
+			while(fast != null && fast.next != null){
+				fast = fast.next.next;
+				slow = slow.next;
+				if(slow == fast){
+					break;
+				}
+			}
+			if(fast == null || fast.next == null){
+				return null;
+			}
+			
+			slow = head;
+			while(slow != fast){
+				slow = slow.next;
+				fast = fast.next;
+			}
+			return fast;
 		}
 
 	public static void main(String[] args) {
