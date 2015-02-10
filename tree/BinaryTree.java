@@ -169,7 +169,7 @@ public class BinaryTree {
 		}
 		int mid = (start+end)/2;
 		TreeNode n = new TreeNode(arr[mid]);
-		//n.data = mid;
+		
 		n.left = createMinimalBST(arr, start, mid-1);
 		n.right = createMinimalBST(arr, mid+1, end);
 		return n;
